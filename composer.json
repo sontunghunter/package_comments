@@ -1,0 +1,13 @@
+{
+    "name": "group/package_comments",
+    "description": "Create overview comment can intergrate other project",
+    "authors": [
+        {
+            "name": "stHunter",
+            "email": "sontung.buinguyen@gmail.com"
+        }
+    ],
+    "require": {
+        "jacopo/laravel-authentication-acl": "1.3.*"
+    }
+}
