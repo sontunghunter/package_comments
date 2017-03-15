@@ -63,9 +63,9 @@ Admin area: {{ trans('comment::comment_admin.page_edit') }}
                                     <!-- POST TEXT-->
                                     @include('comment::comment.elements.text', [
                                     'content' => 'comment_content',
-                                    'user_id' => 'user_id',
-                                    'comment_id_parrent' => 'comment_id_parrent',
-                                    'post_id' => 'post_id'])
+                                    'user_id' => 'comment_user_id',
+                                    'id_parrent' => 'comment_id_parrent',
+                                    'post_id' => 'comment_post_id'])
                                     <!-- /END POST TEXT -->
 
                                 </div>

@@ -7,15 +7,15 @@
 
     /*======================================================================*/
     // GET POST OVERVIEW
-    $user_id = $request->get('user_id') ? $request->get('user_id') : @$comment->user_id;
+    $comment_user_id  = $request->get('comment_user_id ') ? $request->get('comment_user_id ') : @$comment->comment_user_id ;
     
     /*======================================================================*/
     // GET POST DESCRIPTION
-    $id_parrent = $request->get('comment_id_parrent') ? $request->get('comment_id_parrent') : @$comment->id_parrent;
+    $comment_id_parrent = $request->get('comment_id_parrent') ? $request->get('comment_id_parrent') : @$comment->comment_id_parrent;
     
     /*======================================================================*/
     // GET POST NOTES
-    $post_id = $request->get('post_id') ? $request->get('post_id') : @$comment->post_id;
+    $comment_post_id = $request->get('comment_post_id') ? $request->get('comment_post_id') : @$comment->comment_post_id;
     
     ?>
 
@@ -30,18 +30,18 @@
 
     <!--===================================================================-->
     <!-- CREATE TEXT OVERVIEW -->
-    {!! Form::label($user_id, trans('comment::comment_admin.user_id').':') !!}
-    {!! Form::text($user_id, $user_id, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.user_id').'']) !!}
-    
+    {!! Form::label($id_parrent, trans('comment::comment_admin.id_parrent').':') !!}
+    {!! Form::text($id_parrent, $comment_id_parrent, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.id_parrent').'']) !!}
+
     <!--===================================================================-->
     <!-- CREATE TEXT DESCRIPTION -->
-    {!! Form::label($id_parrent, trans('comment::comment_admin.id_parrent').':') !!}
-    {!! Form::text($id_parrent, $id_parrent, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.id_parrent').'']) !!}
+    {!! Form::label($user_id, trans('comment::comment_admin.user_id').':') !!}
+    {!! Form::text($user_id, $comment_user_id, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.user_id').'']) !!}
     
     <!--===================================================================-->
     <!-- CREATE TEXT NOTES -->
     {!! Form::label($post_id, trans('comment::comment_admin.post_id').':') !!}
-    {!! Form::text($post_id, $post_id, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.post_id').'']) !!}
+    {!! Form::text($post_id, $comment_post_id, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.post_id').'']) !!}
     
     <!--===================================================================-->
 

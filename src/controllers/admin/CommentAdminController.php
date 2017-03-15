@@ -83,7 +83,6 @@ class CommentAdminController extends Controllers {
 
         $data = array();
         if (!$this->obj_validator->validate($input)) {
-
             $data['errors'] = $this->obj_validator->getErrors();
 
             if (!empty($comment_id) && is_int($comment_id)) {
@@ -93,7 +92,6 @@ class CommentAdminController extends Controllers {
 
         } else {
             if (!empty($comment_id) && is_int($comment_id)) {
-
                 $comment = $this->obj_comment->find($comment_id);
 
                 if (!empty($comment)) {
@@ -110,6 +108,9 @@ class CommentAdminController extends Controllers {
                     $this->addFlashMessage('message', trans('comment::comment_admin.message_update_unsuccessfully'));
                 }
             } else {
+                var_dump($request->get('comment_content'));
+                var_dump($request->get('comment_id_parrent'));
+                var_dump($request->get('comment_user_id'));
                 $comment = $this->obj_comment->add_comment($input);
 
                 if (!empty($comment)) {

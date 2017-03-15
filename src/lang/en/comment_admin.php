@@ -67,6 +67,6 @@ return [
     'comment_id' => 'ID',
     'comment_content' => 'Comment Content',
     'user_id' => 'User ID',
-    'user_id_parrent' => 'Parrent',
+    'comment_id_parrent' => 'Parrent',
     'post_id' => 'Post id',
 ];
