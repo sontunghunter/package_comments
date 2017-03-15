@@ -6,7 +6,6 @@ return [
     "package_description" => 'Comment package is for initial',
     "order" => '#',
     "operations" => 'Operations',
-    'comment_title_label' => 'Comment category title:',
     /**
      * Page
      */
@@ -23,10 +22,9 @@ return [
     'form_heading' => 'General data',
     'form_add' => 'Add new comment item',
     'form_edit' => 'Update comment item',
-    'title' => 'Title',
-    'overview' => 'Overview',
-    'description' => 'Description',
-    'notes' => 'Notes',
+    'content' => 'Content',
+    'id_parrent' => 'Parrent',
+    
     'user_id' => 'User ID',
     'comment_required_title' => 'Required title',
     'required' => 'is required',
@@ -66,9 +64,9 @@ return [
     ////////////////////////////////////////////////////////////////////////////
     'page_list' => 'Comments',
     'comment_add_button' => 'Add new comment',
-    'comment_id' => 'Comment ID',
-    'comment_title' => 'Comment title',
+    'comment_id' => 'ID',
+    'comment_content' => 'Comment Content',
     'user_id' => 'User ID',
-    'user_id_assigned' => 'Assigned',
-    'user_id_reviewer' => 'Reviewer',
+    'user_id_parrent' => 'Parrent',
+    'post_id' => 'Post id',
 ];

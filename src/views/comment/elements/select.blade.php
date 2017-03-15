@@ -6,6 +6,5 @@
    	?>
 
     {!! Form::label('comment_title', trans('comment::comment_admin.comment_title').':') !!}
-    {!! Form::select('comment_title', @$comments, @$comment->comment_title, ['class' => 'form-control'])!!}
 </div>
 <!-- /CATEGORY LIST -->

@@ -80,7 +80,7 @@ class Comments extends Model {
     public function add_comment($input) {
 
         $comment = self::create([
-                    'comment_content' => $input['comment_content'],
+            'comment_content' => $input['comment_content'],
             'comment_id_parrent' => $input['comment_id_parrent'],
             'user_id' => $input['user_id'],
             'comment_date' => $input['comment_date'],

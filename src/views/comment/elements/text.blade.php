@@ -3,19 +3,19 @@
 	<!-- GET DATA IF EXIST -->
     <?php 
     // GET POST TITLE
-    $comment_title = $request->get('comment_title') ? $request->get('comment_title') : @$comment->comment_title;
+    $comment_content = $request->get('comment_content') ? $request->get('comment_content') : @$comment->comment_content;
 
     /*======================================================================*/
     // GET POST OVERVIEW
-    $comment_overview = $request->get('comment_overview') ? $request->get('comment_overview') : @$comment->comment_overview;
+    $user_id = $request->get('user_id') ? $request->get('user_id') : @$comment->user_id;
     
     /*======================================================================*/
     // GET POST DESCRIPTION
-    $comment_description = $request->get('comment_description') ? $request->get('comment_description') : @$comment->comment_description;
+    $id_parrent = $request->get('comment_id_parrent') ? $request->get('comment_id_parrent') : @$comment->id_parrent;
     
     /*======================================================================*/
     // GET POST NOTES
-    $comment_notes = $request->get('comment_notes') ? $request->get('comment_notes') : @$comment->comment_notes;
+    $post_id = $request->get('post_id') ? $request->get('post_id') : @$comment->post_id;
     
     ?>
 
@@ -25,23 +25,23 @@
     <!--===================================================================-->
 
     <!-- CREATE TEXT TITLE -->
-    {!! Form::label($title, trans('comment::comment_admin.title').':') !!}
-    {!! Form::text($title, $comment_title, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.title').'']) !!}
+    {!! Form::label($content, trans('comment::comment_admin.content').':') !!}
+    {!! Form::text($content, $comment_content, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.content').'']) !!}
 
     <!--===================================================================-->
     <!-- CREATE TEXT OVERVIEW -->
-    {!! Form::label($overview, trans('comment::comment_admin.overview').':') !!}
-    {!! Form::text($overview, $comment_notes, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.overview').'']) !!}
+    {!! Form::label($user_id, trans('comment::comment_admin.user_id').':') !!}
+    {!! Form::text($user_id, $user_id, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.user_id').'']) !!}
     
     <!--===================================================================-->
     <!-- CREATE TEXT DESCRIPTION -->
-    {!! Form::label($description, trans('comment::comment_admin.description').':') !!}
-    {!! Form::text($description, $comment_description, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.description').'']) !!}
+    {!! Form::label($id_parrent, trans('comment::comment_admin.id_parrent').':') !!}
+    {!! Form::text($id_parrent, $id_parrent, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.id_parrent').'']) !!}
     
     <!--===================================================================-->
     <!-- CREATE TEXT NOTES -->
-    {!! Form::label($notes, trans('comment::comment_admin.notes').':') !!}
-    {!! Form::text($notes, $comment_notes, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.notes').'']) !!}
+    {!! Form::label($post_id, trans('comment::comment_admin.post_id').':') !!}
+    {!! Form::text($post_id, $post_id, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.post_id').'']) !!}
     
     <!--===================================================================-->
 

@@ -38,7 +38,7 @@ Admin area: {{ trans('comment::comment_admin.page_edit') }}
                         <div class="col-md-12 col-xs-12">
                             <!-- POST ID -->
                             <h4>{!! trans('comment::comment_admin.form_heading') !!}</h4>
-                            {!! Form::open(['route'=>['admin_comment.comment', 'id' => @$comment->comment_id],  'files'=>true, 'method' => 'comment'])  !!}
+                            {!! Form::open(['route'=>['admin_comment.up_comment', 'id' => @$comment->comment_id],  'files'=>true, 'method' => 'comment'])  !!}
 
                             <!--END POST ID  -->
 
@@ -62,10 +62,10 @@ Admin area: {{ trans('comment::comment_admin.page_edit') }}
                                     
                                     <!-- POST TEXT-->
                                     @include('comment::comment.elements.text', [
-                                    'title' => 'comment_title',
-                                    'overview' => 'comment_overview',
-                                    'description' => 'comment_description',
-                                    'notes' => 'comment_notes'])
+                                    'content' => 'comment_content',
+                                    'user_id' => 'user_id',
+                                    'comment_id_parrent' => 'comment_id_parrent',
+                                    'post_id' => 'post_id'])
                                     <!-- /END POST TEXT -->
 
                                 </div>
@@ -73,11 +73,7 @@ Admin area: {{ trans('comment::comment_admin.page_edit') }}
                                 <!--TEMPLATE ATTRIBUTES-->
                                 <div id="menu1" class="tab-pane fade">
                                     <!-- POST ATTRIBUTES-->
-                                    @include('comment::comment.elements.select', [
-                                    'title' => 'comment_title',
-                                    'overview' => 'comment_overview',
-                                    'description' => 'comment_description',
-                                    'notes' => 'comment_notes'])
+                                    
                                     <!-- /END POST ATTRIBUTES -->
                                 </div>
                             </div>

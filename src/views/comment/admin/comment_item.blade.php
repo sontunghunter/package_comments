@@ -21,7 +21,7 @@
             </th>
 
             <th style='width:25%'>
-                {{ trans('comment::comment_admin.comment_title') }}
+                {{ trans('comment::comment_admin.comment_content') }}
             </th>
             
             <th style='width:10%'>
@@ -29,11 +29,11 @@
             </th>
 
             <th style='width:10%'>
-                {{ trans('comment::comment_admin.user_id_assigned') }}
+                {{ trans('comment::comment_admin.user_id_parrent') }}
             </th>
 
             <th style='width:10%'>
-                {{ trans('comment::comment_admin.user_id_reviewer') }}
+                {{ trans('comment::comment_admin.post_id') }}
             </th>
 
             <th style='width:10%'>

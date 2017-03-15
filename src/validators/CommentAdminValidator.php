@@ -9,7 +9,7 @@ use Illuminate\Support\MessageBag as MessageBag;
 class CommentAdminValidator extends AbstractValidator
 {
     protected static $rules = array(
-        'comment_title' => 'required',
+        'comment_content' => 'required',
     );
 
     protected static $messages = [];
