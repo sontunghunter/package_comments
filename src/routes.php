@@ -10,6 +10,10 @@ Route::get('comment', [
     'uses' => 'Group\Comment\Controllers\Front\CommentFrontController@index'
 ]);
 
+Route::get('comment/add', [
+    'as' => 'comment.add',
+    'uses' => 'Group\Comment\Controllers\Front\CommentFrontController@add'
+]);
 
 /**
  * ADMINISTRATOR

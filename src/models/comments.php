@@ -78,12 +78,10 @@ class Comments extends Model {
      * @return type
      */
     public function add_comment($input) {
-//var_dump($input);die();
         $comment = self::create([
             'comment_content' => $input['comment_content'],
-            'comment_id_parrent' => $input['comment_id_parrent'],
-            'user_id' => $input['comment_user_id'],
-            'post_id' => $input['comment_post_id'],
+            'user_id' => $input['user_id'],
+            'post_id' => $input['post_id'],
         ]);
         return $comment;
     }

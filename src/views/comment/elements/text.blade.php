@@ -26,7 +26,7 @@
 
     <!-- CREATE TEXT TITLE -->
     {!! Form::label($content, trans('comment::comment_admin.content').':') !!}
-    {!! Form::text($content, $comment_content, ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.content').'']) !!}
+    {!! Form::text($content, $comment_content, ['class' => 'form-control', 'placeholder' => 'asdasdasdas']) !!}
 
     <!--===================================================================-->
     <!-- CREATE TEXT OVERVIEW -->

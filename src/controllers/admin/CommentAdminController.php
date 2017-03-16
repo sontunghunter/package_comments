@@ -62,7 +62,6 @@ class CommentAdminController extends Controllers {
         $this->data_view = array_merge($this->data_view, array(
             'comment' => $comment,
             'request' => $request,
-            //'users' => $this->obj_users->pluckSelect()
         ));
         
         return view('comment::comment.admin.comment_edit', $this->data_view);
@@ -76,7 +75,7 @@ class CommentAdminController extends Controllers {
         $this->obj_validator = new commentAdminValidator();
 
         $input = $request->all();
-
+        var_dump($request->all());die();
         $comment_id = (int) $request->get('id');
 
         $comment = NULL;
@@ -108,9 +107,6 @@ class CommentAdminController extends Controllers {
                     $this->addFlashMessage('message', trans('comment::comment_admin.message_update_unsuccessfully'));
                 }
             } else {
-                var_dump($request->get('comment_content'));
-                var_dump($request->get('comment_id_parrent'));
-                var_dump($request->get('comment_user_id'));
                 $comment = $this->obj_comment->add_comment($input);
 
                 if (!empty($comment)) {

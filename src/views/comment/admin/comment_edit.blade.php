@@ -1,4 +1,3 @@
-@extends('laravel-authentication-acl::admin.layouts.base-2cols')
 
 @section('title')
 Admin area: {{ trans('comment::comment_admin.page_edit') }}
@@ -14,8 +13,10 @@ Admin area: {{ trans('comment::comment_admin.page_edit') }}
                         {!! !empty($comment->comment_id) ? '<i class="fa fa-pencil"></i>'.trans('comment::comment_admin.form_edit') : '<i class="fa fa-users"></i>'.trans('comment::comment_admin.form_add') !!}
                     </h3>
                 </div>
+                
                 <!-- ERRORS NAME  -->
                 {{-- model general errors from the form --}}
+                
                 @if($errors->has('comment_title') )
                     <div class="alert alert-danger">{!! $errors->first('comment_title') !!}</div>
                 @endif
@@ -48,11 +49,6 @@ Admin area: {{ trans('comment::comment_admin.page_edit') }}
                                         {!! trans('comment::comment_admin.tab_overview') !!}
                                     </a>
                                 </li>
-                                <li>
-                                    <a data-toggle="tab" href="#menu1">
-                                        {!! trans('comment::comment_admin.tab_attributes') !!}
-                                    </a>
-                                </li>
                             </ul>
 
                             <div class="tab-content">
@@ -68,13 +64,6 @@ Admin area: {{ trans('comment::comment_admin.page_edit') }}
                                     'post_id' => 'comment_post_id'])
                                     <!-- /END POST TEXT -->
 
-                                </div>
-
-                                <!--TEMPLATE ATTRIBUTES-->
-                                <div id="menu1" class="tab-pane fade">
-                                    <!-- POST ATTRIBUTES-->
-                                    
-                                    <!-- /END POST ATTRIBUTES -->
                                 </div>
                             </div>
 
