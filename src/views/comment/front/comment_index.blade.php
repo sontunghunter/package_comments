@@ -6,8 +6,9 @@
 
 {!! Form::label('Comment') !!}
 {{ Form::textarea('comment_content', null, ['class' => 'form-control', 'placeholder' => 'Comment']) }}
-
-{{ Form::submit('Submit')}}
+<div style="float: right; padding-top: 15px;">
+	{{ Form::submit('Gửi')}}
+</div>
 
 
 {{ Form::close() }}

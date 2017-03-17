@@ -32,7 +32,7 @@ class CommentAdminController extends Controllers {
      */
     public function index(Request $request) {
 
-         $params =  $request->all();
+        $params =  $request->all();
 
         $list_comment = $this->obj_comment->get_comments($params);
 
@@ -41,9 +41,10 @@ class CommentAdminController extends Controllers {
             'request' => $request,
             'params' => $params
         ));
+
         return view('comment::comment.admin.comment_list', $this->data_view);
     }
-
+    
     /**
      *
      * @return type
@@ -56,9 +57,7 @@ class CommentAdminController extends Controllers {
             $comment = $this->obj_comment->find($comment_id);
 
         }
-        $obj_users = new Users;
-
-
+        
         $this->data_view = array_merge($this->data_view, array(
             'comment' => $comment,
             'request' => $request,
@@ -75,7 +74,7 @@ class CommentAdminController extends Controllers {
         $this->obj_validator = new commentAdminValidator();
 
         $input = $request->all();
-        var_dump($request->all());die();
+
         $comment_id = (int) $request->get('id');
 
         $comment = NULL;
@@ -107,6 +106,9 @@ class CommentAdminController extends Controllers {
                     $this->addFlashMessage('message', trans('comment::comment_admin.message_update_unsuccessfully'));
                 }
             } else {
+                var_dump($request->get('comment_content'));
+                var_dump($request->get('comment_id_parrent'));
+                var_dump($request->get('comment_user_id'));
                 $comment = $this->obj_comment->add_comment($input);
 
                 if (!empty($comment)) {
@@ -128,35 +130,6 @@ class CommentAdminController extends Controllers {
         ), $data);
 
         return view('comment::comment.admin.comment_edit', $this->data_view);
-    }
-
-    /**
-     *
-     * @return type
-     */
-    public function delete(Request $request) {
-
-        $comment = NULL;
-        $comment_id = $request->get('id');
-
-        if (!empty($comment_id)) {
-            $comment = $this->obj_comment->find($comment_id);
-
-            if (!empty($comment)) {
-                  //Message
-                $this->addFlashMessage('message', trans('comment::comment_admin.message_delete_successfully'));
-
-                $comment->delete();
-            }
-        } else {
-
-        }
-
-        $this->data_view = array_merge($this->data_view, array(
-            'comment' => $comment,
-        ));
-
-        return Redirect::route("admin_comment");
     }
 
 }

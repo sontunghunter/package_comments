@@ -19,26 +19,23 @@ class Comments extends Model {
     protected $primaryKey = 'comment_id';
 
     /**
+
      *
      * @param type $params
      * @return type
      */
     public function get_comments($params = array()) {
         $eloquent = self::orderBy('comment_id');
-
-        //comment_content
-        if (!empty($params['comment_content'])) {
-            $eloquent->where('comment_content',
+       
+        if (!empty($params['comment_post_id'])) {
+            $eloquent->where('post_id',
         'like',
-        '%'. $params['comment_content'].'%');
+        '%'. $params['comment_post_id'].'%');
         }
-
-        $comments = $eloquent->paginate(10);//TODO: change number of item per page to configs
+        $comments = $eloquent->paginate(10);
 
         return $comments;
     }
-
-
 
     /**
      *
@@ -85,7 +82,6 @@ class Comments extends Model {
             'comment_id_parrent' => '1',
             'comment_status ' => '1',
             'comment_date ' => date('Y-m-d H:i:s'),
-
         ]);
         return $comment;
     }

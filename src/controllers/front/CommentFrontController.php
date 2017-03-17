@@ -42,7 +42,7 @@ class CommentFrontController extends Controllers {
         $this->obj_validator = new commentFrontValidator();
 
         $input = $request->all();
-        $comment_id = (int) $request->get('id');
+        $comment_content = $request->get('comment_content');
 
         $comment = NULL;
 
@@ -50,49 +50,24 @@ class CommentFrontController extends Controllers {
         if (!$this->obj_validator->validate($input)) {
             $data['errors'] = $this->obj_validator->getErrors();
 
-            if (!empty($comment_id) && is_int($comment_id)) {
+            if (empty($comment_content)) {
 
-                $comment = $this->obj_comment->find($comment_id);
+                $this->addFlashMessage('message', trans('comment::comment_front.message_add_unsuccessfully'));
+                return Redirect::route("comment");
             }
 
         } else {
-            if (!empty($comment_id) && is_int($comment_id)) {
-                $comment = $this->obj_comment->find($comment_id);
+            $comment = $this->obj_comment->add_comment($input);
 
-                if (!empty($comment)) {
-
-                    $input['comment_id'] = $comment_id;
-                    $comment = $this->obj_comment->update_comment($input);
-
-                    //Message
-                    $this->addFlashMessage('message', trans('comment::comment_front.message_update_successfully'));
-                    return Redirect::route("comment", ["id" => $comment->comment_id]);
-                } else {
-
-                    //Message
-                    $this->addFlashMessage('message', trans('comment::comment_front.message_update_unsuccessfully'));
-                }
+            if (!empty($comment)) {
+                //Message
+                $this->addFlashMessage('message', trans('comment::comment_front.message_add_successfully'));
+                return Redirect::route("comment");
             } else {
-                $comment = $this->obj_comment->add_comment($input);
-
-                if (!empty($comment)) {
-
-                    //Message
-                    $this->addFlashMessage('message', trans('comment::comment_front.message_add_successfully'));
-                    return Redirect::route("comment", ["id" => $comment->comment_id]);
-                } else {
-
-                    //Message
-                    $this->addFlashMessage('message', trans('comment::comment_front.message_add_unsuccessfully'));
-                }
+                //Message
+                $this->addFlashMessage('message', trans('comment::comment_front.message_add_unsuccessfully'));
+                return Redirect::route("comment");
             }
         }
-
-        $this->data_view = array_merge($this->data_view, array(
-            'comment' => $comment,
-            'request' => $request,
-        ), $data);
-
-        return view('comment::comment.front.comment', $this->data_view);
     }
 }

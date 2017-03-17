@@ -9,8 +9,8 @@
 
         <!--TITLE-->
 		<div class="form-group">
-            {!! Form::label('comment_title',trans('comment::comment_admin.comment_title_label')) !!}
-            {!! Form::text('comment_title', @$params['comment_title'], ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.comment_title')]) !!}
+            {!! Form::label('comment_title',trans('comment::comment_admin.post_id')) !!}
+            {!! Form::text('comment_post_id', @$params['post_id'], ['class' => 'form-control', 'placeholder' => trans('comment::comment_admin.post_id')]) !!}
         </div>
 
         {!! Form::submit(trans('comment::comment_admin.search').'', ["class" => "btn btn-info pull-right"]) !!}

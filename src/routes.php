@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web']], function () {
             'uses' => 'Group\Comment\Controllers\Admin\CommentAdminController@index'
         ]);
 
+        
         /**
          * edit-add
          */
@@ -48,54 +49,5 @@ Route::group(['middleware' => ['web']], function () {
             'as' => 'admin_comment.up_comment',
             'uses' => 'Group\Comment\Controllers\Admin\CommentAdminController@up_comment'
         ]);
-
-        /**
-         * delete
-         */
-        Route::get('admin/comment/delete', [
-            'as' => 'admin_comment.delete',
-            'uses' => 'Group\Comment\Controllers\Admin\CommentAdminController@delete'
-        ]);
-        ////////////////////////////////////////////////////////////////////////
-        ////////////////////////////SAMPLES ROUTE///////////////////////////////
-        ////////////////////////////////////////////////////////////////////////
-
-
-
-
-        
-        ////////////////////////////////////////////////////////////////////////
-        ////////////////////////////CATEGORIES///////////////////////////////
-        ////////////////////////////////////////////////////////////////////////
-        /* Route::get('admin/comment_category', [
-            'as' => 'admin_comment_category',
-            'uses' => 'Group\Comment\Controllers\Admin\CommentCategoryAdminController@index'
-        ]);*/
-
-        /**
-         * edit-add
-         */
-        /*Route::get('admin/comment_category/edit', [
-            'as' => 'admin_comment_category.edit',
-            'uses' => 'Group\Comment\Controllers\Admin\CommentCategoryAdminController@edit'
-        ]);*/
-
-        /**
-         * post
-         */
-        /*Route::post('admin/comment_category/edit', [
-            'as' => 'admin_comment_category.comment',
-            'uses' => 'Group\Comment\Controllers\Admin\CommentCategoryAdminController@comment'
-        ]);*/
-         /**
-         * delete
-         */
-        /*Route::get('admin/comment_category/delete', [
-            'as' => 'admin_comment_category.delete',
-            'uses' => 'Group\Comment\Controllers\Admin\CommentCategoryAdminController@delete'
-        ]);*/
-        ////////////////////////////////////////////////////////////////////////
-        ////////////////////////////CATEGORIES///////////////////////////////
-        ////////////////////////////////////////////////////////////////////////
     });
 });

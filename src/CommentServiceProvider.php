@@ -83,11 +83,6 @@ class CommentServiceProvider extends ServiceProvider {
                     'url' => URL::route('admin_comment'),
                     "icon" => '<i class="fa fa-users"></i>'
                 ],
-                //add
-                trans('comment::comment_admin.'.$is_action) => [
-                    'url' => URL::route('admin_comment.edit'),
-                    "icon" => '<i class="fa fa-users"></i>'
-                ]
             ]);
             //
         });

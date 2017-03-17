@@ -3,15 +3,12 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <td style='width:5%'>
-                {{ trans('comment::comment_admin.order') }}
-            </td>
 
-            <th style='width:10%'>
+            <th style='width:5%'>
                 {{ trans('comment::comment_admin.comment_id') }}
             </th>
 
-            <th style='width:30%'>
+            <th style='width:25%'>
                 {{ trans('comment::comment_admin.comment_content') }}
             </th>
             
@@ -26,6 +23,14 @@
             <th style='width:10%'>
                 {{ trans('comment::comment_admin.post_id') }}
             </th>
+
+            <th style='width:5%'>
+                {{ trans('comment::comment_admin.comment_id_status') }}
+            </th>
+
+            <th style='width:10%'>
+                {{ trans('comment::comment_admin.comment_date') }}
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -35,11 +40,6 @@
         ?>
         @foreach($comments as $comment)
         <tr>
-            <!--COUNTER-->
-            <td>
-                <?php echo $counter; $counter++ ?>
-            </td>
-            <!--/END COUNTER-->
 
             <!--POST ID-->
             <td>
@@ -70,6 +70,18 @@
                 {!! $comment->post_id !!}
             </td>
             <!--/END REVIEWER ID-->
+            
+            <!--STATUS-->
+            <td>
+                {!! $comment->comment_status !!}
+            </td>
+            <!--/END STATUS-->
+
+            <!--COMMENT DATE-->
+            <td>
+                {!! $comment->comment_date !!}
+            </td>
+            <!--/END COMMENT DATE-->
         </tr>
         @endforeach
     </tbody>
