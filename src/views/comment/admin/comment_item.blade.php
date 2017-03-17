@@ -1,12 +1,3 @@
-<!--ADD SAMPLE CATEGORY ITEM-->
-<div class="row margin-bottom-12">
-    <div class="col-md-12">
-        <a href="{!! URL::route('admin_comment.edit') !!}" class="btn btn-info pull-right">
-            <i class="fa fa-plus"></i>{{trans('comment::comment_admin.comment_add_button')}}
-        </a>
-    </div>
-</div>
-<!--/END ADD SAMPLE CATEGORY ITEM-->
 
 @if( ! $comments->isEmpty() )
 <table class="table table-hover">
