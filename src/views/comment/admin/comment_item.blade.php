@@ -35,6 +35,7 @@
             $counter = ($nav['current_page'] - 1) * $nav['per_page'] + 1;
         ?>
         @foreach($comments as $comment)
+        @if($comment->comment_id_parrent == 0)
         <tr>
 
             <!--POST ID-->
@@ -70,8 +71,48 @@
                 <a href="{!! URL::route('admin_comment.delete',['id' =>  $comment->comment_id, '_token' => csrf_token()]) !!}" class="margin-left-5 delete"><i class="fa fa-trash-o fa-2x"></i></a>
                 <span class="clearfix"></span>
             </td>
-            
+            @foreach($comments as $comment_child)
+                @if($comment_child->comment_id_parrent == $comment->comment_id)
+                   
+                    <tr>
+                        <!--POST ID-->
+                        <td style="padding-left: 30px">
+                            {!! $comment_child->comment_id !!}
+                        <!--/END POST ID-->
+
+                        <!--POST TITLE-->
+                        <td>
+                            {!! $comment_child->comment_content !!}
+                        </td>
+                        <!--/END POST TITLE-->
+
+                        <!--USER ID-->
+                        <td>
+                            {!! $comment_child->user_id !!}
+                        </td>
+                        <!--/END USER ID-->
+
+                        <!--ASSIGNED ID-->
+                        <td>
+                            {!! $comment_child->comment_id_parrent !!}
+                        </td>
+                        <!--/END ASSIGNED ID-->
+
+                        <!--REVIEWER ID-->
+                        <td>
+                            {!! $comment_child->post_id !!}
+                        </td>
+                        <!--/END REVIEWER ID-->
+                        <td>
+                            <a href="{!! URL::route('admin_comment.delete',['id' =>  $comment->comment_id, '_token' => csrf_token()]) !!}" class="margin-left-5 delete"><i class="fa fa-trash-o fa-2x"></i></a>
+                            <span class="clearfix"></span>
+                        </td>
+                        
+                    </tr>
+                @endif
+            @endforeach
         </tr>
+        @endif
         @endforeach
     </tbody>
 </table>
