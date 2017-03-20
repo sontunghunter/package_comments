@@ -1,8 +1,33 @@
-
 @if( ! $comments->isEmpty() )
 <table class="table table-hover">
     <thead>
-        
+        <tr>
+
+            <th style='width:5%'>
+                {{ trans('comment::comment_admin.comment_id') }}
+            </th>
+
+            <th style='width:25%'>
+                {{ trans('comment::comment_admin.comment_content') }}
+            </th>
+            
+            <th style='width:10%'>
+                {{ trans('comment::comment_admin.user_id') }}
+            </th>
+
+            <th style='width:15%'>
+                {{ trans('comment::comment_admin.user_id_parrent') }}
+            </th>
+
+            <th style='width:10%'>
+                {{ trans('comment::comment_admin.post_id') }}
+            </th>
+            <th style='width:20%'>
+                {{ trans('comment::comment_admin.operations') }}
+            </th>
+
+
+        </tr>
     </thead>
     <tbody>
         <?php
@@ -41,18 +66,12 @@
                 {!! $comment->post_id !!}
             </td>
             <!--/END REVIEWER ID-->
+            <td>
+                <a href="{!! URL::route('admin_comment.edit', ['id' => $comment->comment_id]) !!}"><i class="fa fa-edit fa-2x"></i></a>
+                <a href="{!! URL::route('admin_comment.delete',['id' =>  $comment->comment_id, '_token' => csrf_token()]) !!}" class="margin-left-5 delete"><i class="fa fa-trash-o fa-2x"></i></a>
+                <span class="clearfix"></span>
+            </td>
             
-            <!--STATUS-->
-            <td>
-                {!! $comment->comment_status !!}
-            </td>
-            <!--/END STATUS-->
-
-            <!--COMMENT DATE-->
-            <td>
-                {!! $comment->comment_date !!}
-            </td>
-            <!--/END COMMENT DATE-->
         </tr>
         @endforeach
     </tbody>

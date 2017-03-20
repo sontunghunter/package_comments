@@ -25,14 +25,14 @@ class Comments extends Model {
      * @return type
      */
     public function get_comments($params = array()) {
-        $eloquent = self::orderBy('comment_id');
+        $eloquent = self::orderBy('comment_id','desc');
        
         if (!empty($params['comment_post_id'])) {
             $eloquent->where('post_id',
         'like',
         '%'. $params['comment_post_id'].'%');
         }
-        $comments = $eloquent->paginate(10);
+        $comments = $eloquent->paginate(30);
 
         return $comments;
     }
@@ -77,10 +77,10 @@ class Comments extends Model {
     public function add_comment($input) {
         $comment = self::create([
             'comment_content' => $input['comment_content'],
-            'user_id' => '2',
-            'post_id' => '2',
-            'comment_id_parrent' => '1',
-            'comment_status ' => '1',
+            'user_id' => $input['user_id'],
+            'post_id' => $input['post_id'],
+            'comment_id_parrent' => $input['parent_id'],
+            'comment_status ' => $input['status_id'],
             'comment_date ' => date('Y-m-d H:i:s'),
         ]);
         return $comment;

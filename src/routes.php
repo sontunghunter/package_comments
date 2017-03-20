@@ -49,5 +49,13 @@ Route::group(['middleware' => ['web']], function () {
             'as' => 'admin_comment.up_comment',
             'uses' => 'Group\Comment\Controllers\Admin\CommentAdminController@up_comment'
         ]);
+
+        /**
+         * post
+         */
+        Route::get('admin/comment/delete', [
+            'as' => 'admin_comment.delete',
+            'uses' => 'Group\Comment\Controllers\Admin\CommentAdminController@delete'
+        ]);
     });
 });

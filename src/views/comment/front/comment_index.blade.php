@@ -72,31 +72,17 @@
                 <div class="nk-gap"></div>
                 <div class="nk-comments">
                     <!-- START: Comment -->
-                    <div class="nk-comment">
-                        <div class="nk-comment-meta">
-                            <img src="comments/img/avatar.png" alt="Witch Murder" class="img-circle" width="35"> by <a href="https://nkdev.info">Witch Murder</a> in 20 September, 2016
-                            <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 pull-right">Reply</a>
-                        </div>
-                        <div class="nk-comment-text">
-                            <p>This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise, she lost sight of her in a moment, and found herself walking in at the front-door again.</p>
-                        </div>
+                    @include('comment::comment.front.comment_item')
 
-                        <!-- START: Comment -->
-                        <div class="nk-comment">
-                            <div class="nk-comment-meta">
-                                <img src="comments/img/avatar.png" alt="Hitman" class="img-circle" width="35"> by <a href="https://nkdev.info">Hitman</a> in 20 September, 2016
-                                <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 pull-right">Reply</a>
-                            </div>
-                            <div class="nk-comment-text">
-                                <p>To her surprise, she lost sight of her in a moment, and found herself walking in at the front-door again.</p>
-                            </div>
-                        </div>
-                        <!-- END: Comment -->
-                    </div>
-                    <!-- END: Comment -->
-
-                    <!-- START: Comment -->
-                    
+                    <!-- <div class="nk-comment">
+                                 <div class="nk-comment-meta">
+                                     <img src="comments/img/avatar.png" alt="Witch Murder" class="img-circle" width="35"> by <a href="https://nkdev.info">Witch Murder</a> in 20 September, 2016
+                                     <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 pull-right">Reply</a>
+                                 </div>
+                                 <div class="nk-comment-text">
+                                     <p>This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise, she lost sight of her in a moment, and found herself walking in at the front-door again.</p>
+                                 </div>
+                             </div>            -->         
                     <!-- END: Comment -->
                 </div>
                 <!-- END: Comments -->
@@ -112,7 +98,10 @@
 						<div style="float: right; padding-top: 15px;">
 							{{ Form::submit('Post Comment', ['class' => 'nk-btn nk-btn-rounded nk-btn-color-main-1'])}}
 						</div>
-
+					<input type="hidden" name="user_id" value="9">
+					<input type="hidden" name="post_id" value="9">
+					<input type="hidden" name="parent_id" value="9">
+					<input type="hidden" name="status_id" value="9">
 					{{ Form::close() }}
                 </div>
                 <!-- END: Reply -->

@@ -132,4 +132,29 @@ class CommentAdminController extends Controllers {
         return view('comment::comment.admin.comment_edit', $this->data_view);
     }
 
+    public function delete(Request $request) {
+
+        $comment = NULL;
+        $comment_id = $request->get('id');
+
+        if (!empty($comment_id)) {
+            $comment = $this->obj_comment->find($comment_id);
+
+            if (!empty($comment)) {
+                //Message
+                $this->addFlashMessage('message', trans('comment::comment_admin.message_delete_successfully'));
+
+                $comment->delete();
+            }
+        } else {
+
+        }
+
+        $this->data_view = array_merge($this->data_view, array(
+            'comment' => $comment,
+        ));
+
+        return Redirect::route("admin_comment");
+    }
+
 }
