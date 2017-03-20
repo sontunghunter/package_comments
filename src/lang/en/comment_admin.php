@@ -78,4 +78,5 @@ return [
     'user_id_parrent' => 'ID Parrent',
     'comment_id_status' => 'Status',
     'comment_date' => 'Date',
+    'post_name' => 'Post name',
 ];

@@ -66,6 +66,7 @@ class CommentFrontController extends Controllers {
             }
 
         } else {
+            
             $comment = $this->obj_comment->add_comment($input);
 
             if (!empty($comment)) {

@@ -16,6 +16,7 @@
             </div>
                 @foreach($comments as $parent)
                     @if ($parent->comment_id_parrent == $comment->comment_id)
+                    ---------------------------------
                         <div class="nk-comment">
                             <div class="nk-comment-meta">
                                 <img src="comments/img/avatar.png" alt="{!! $comment->user_id !!}" class="img-circle" width="35"> by <a href="#">{!! $parent->user_id !!}</a> in 20 September, 2016

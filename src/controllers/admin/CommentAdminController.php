@@ -7,6 +7,7 @@ use Route,
     Redirect;
 use Group\Comment\Models\Comments;
 use Group\Comment\Models\Users;
+use Group\Comment\Models\Posts;
 
 /**
  * Validators
@@ -35,11 +36,13 @@ class CommentAdminController extends Controllers {
         $params =  $request->all();
 
         $list_comment = $this->obj_comment->get_comments($params);
+        $this->obj_template_post = new Posts();
 
         $this->data_view = array_merge($this->data_view, array(
             'comments' => $list_comment,
             'request' => $request,
-            'params' => $params
+            'params' => $params,
+            'posts' => $this->obj_template_post->pluckSelect()
         ));
 
         return view('comment::comment.admin.comment_list', $this->data_view);

@@ -1,10 +1,9 @@
-<!-- CATEGORY LIST -->
 <div class="form-group">
+    <?php $comment_name = $request->get('comment_titlename') ? $request->get('comment_name') : @$comment->comment_name ?>
 
-    <?php $comment_title = $request->get('comment_title') ? $request->get('comment_title') : @$comment->comment_title;
-    
-   	?>
 
-    {!! Form::label('comment_title', trans('comment::comment_admin.comment_title').':') !!}
+    {!! Form::label($name, trans('comment::comment_admin.post_name').':') !!}
+
+    {!! Form::select($name, @$posts, @$posts->post_id, ['class' => 'form-control']) !!}
+
 </div>
-<!-- /CATEGORY LIST -->
