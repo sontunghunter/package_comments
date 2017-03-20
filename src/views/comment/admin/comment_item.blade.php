@@ -67,7 +67,6 @@
             </td>
             <!--/END REVIEWER ID-->
             <td>
-                <a href="{!! URL::route('admin_comment.edit', ['id' => $comment->comment_id]) !!}"><i class="fa fa-edit fa-2x"></i></a>
                 <a href="{!! URL::route('admin_comment.delete',['id' =>  $comment->comment_id, '_token' => csrf_token()]) !!}" class="margin-left-5 delete"><i class="fa fa-trash-o fa-2x"></i></a>
                 <span class="clearfix"></span>
             </td>

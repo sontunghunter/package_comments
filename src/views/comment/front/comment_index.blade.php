@@ -2,7 +2,7 @@
 
 @section('head_css')
     {!! HTML::style('comments/css/comment.css') !!}
-
+    <script src="comments/js/jquery-3.1.1.min.js"></script>
 @stop
 
 @section('content')
@@ -46,14 +46,6 @@
 <h3 class="h4">Now the races of these two have been</h3>
 
 <p>I confess this side of the country was much pleasanter than mine; but yet I had not the least inclination to remove, for as I was fixed in my habitation it became natural to me, and I seemed all the while I was here to be as it were upon a journey, and from home. However, I travelled along the shore she clutched the matron by the arm, and forcing her into a chair by the bedside, was about to speak, wh en looking round, she caught sight of the two old women bending forward in the attitude of eager list eners.They belong to the old gentleman, said Oliver, wringing his hands; "to the good, kind, old gentle man who took me into his house, and had me nursed, when I was near dying of the fever . Oh, pray send them back; send him back the books and money</p>
-
-
-
-
-
-
-
-
                     
                     
                 </div>
@@ -74,16 +66,7 @@
                     <!-- START: Comment -->
                     @include('comment::comment.front.comment_item')
 
-                    <!-- <div class="nk-comment">
-                                 <div class="nk-comment-meta">
-                                     <img src="comments/img/avatar.png" alt="Witch Murder" class="img-circle" width="35"> by <a href="https://nkdev.info">Witch Murder</a> in 20 September, 2016
-                                     <a href="#" class="nk-btn nk-btn-rounded nk-btn-color-dark-3 pull-right">Reply</a>
-                                 </div>
-                                 <div class="nk-comment-text">
-                                     <p>This sounded nonsense to Alice, so she said nothing, but set off at once toward the Red Queen. To her surprise, she lost sight of her in a moment, and found herself walking in at the front-door again.</p>
-                                 </div>
-                             </div>            -->         
-                    <!-- END: Comment -->
+                   
                 </div>
                 <!-- END: Comments -->
 
@@ -98,14 +81,15 @@
 						<div style="float: right; padding-top: 15px;">
 							{{ Form::submit('Post Comment', ['class' => 'nk-btn nk-btn-rounded nk-btn-color-main-1'])}}
 						</div>
-					<input type="hidden" name="user_id" value="9">
+					<input type="hidden" name="user_id" value="1">
 					<input type="hidden" name="post_id" value="9">
-					<input type="hidden" name="parent_id" value="9">
+					<input type="hidden" name="parent_id" value="0">
 					<input type="hidden" name="status_id" value="9">
 					{{ Form::close() }}
                 </div>
                 <!-- END: Reply -->
             </div>
+
 
 
 
