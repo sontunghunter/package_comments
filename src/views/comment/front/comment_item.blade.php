@@ -2,7 +2,36 @@
 @if( ! $comments->isEmpty() )
 <table class="table table-hover">
     <thead>
-        
+        <tr>
+
+            <th style='width:5%'>
+                {{ trans('comment::comment_admin.comment_id') }}
+            </th>
+
+            <th style='width:25%'>
+                {{ trans('comment::comment_admin.comment_content') }}
+            </th>
+            
+            <th style='width:10%'>
+                {{ trans('comment::comment_admin.user_id') }}
+            </th>
+
+            <th style='width:15%'>
+                {{ trans('comment::comment_admin.user_id_parrent') }}
+            </th>
+
+            <th style='width:10%'>
+                {{ trans('comment::comment_admin.post_id') }}
+            </th>
+
+            <th style='width:5%'>
+                {{ trans('comment::comment_admin.comment_id_status') }}
+            </th>
+
+            <th style='width:10%'>
+                {{ trans('comment::comment_admin.comment_date') }}
+            </th>
+        </tr>
     </thead>
     <tbody>
         <?php

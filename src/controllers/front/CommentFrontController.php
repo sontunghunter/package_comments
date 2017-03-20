@@ -31,6 +31,15 @@ class CommentFrontController extends Controllers {
      * @return type
      */
     public function index(Request $request) {
+        $params =  $request->all();
+
+        $list_comment = $this->obj_comment->get_comments($params);
+
+        $this->data_view = array_merge($this->data_view, array(
+            'comments' => $list_comment,
+            'request' => $request,
+            'params' => $params
+        ));
 
         return view('comment::comment.front.comment_index', $this->data_view);
     }
